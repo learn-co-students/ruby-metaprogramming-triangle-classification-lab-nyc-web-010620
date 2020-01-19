@@ -11,8 +11,8 @@ class Triangle
       [self.a, self.b, self.c]
     end
     
-    def equilateral?(shape)
-      shape.all?(shape[0])
+    def equilateral?
+      [self.a, self.b, self.c].all?(self.a)
     end
 
     def scalene?
@@ -45,7 +45,7 @@ class Triangle
       raise TriangleError if [self.a, self.b, self.c].all?(0)
       raise TriangleError if self.a < 0 || self.b < 0 || self.c < 0
 
-      if equilateral?(self.shape)
+      if self.equilateral?
         :equilateral
       elsif triangle_inequality?(self.shape) && self.isosceles?
         :isosceles
